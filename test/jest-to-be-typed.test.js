@@ -1,23 +1,23 @@
 describe('testing extended expect', () => {
   it('tests normal types correctly', () => {
-    expect('').toBeType('string');
-    expect({}).toBeType('object');
-    expect(1).toBeType('number');
-    expect(false).toBeType('boolean');
-    expect(Symbol('foobar')).toBeType('symbol');
-    expect(() => {}).toBeType('function');
+    expect('').toBeTyped('string');
+    expect({}).toBeTyped('object');
+    expect(1).toBeTyped('number');
+    expect(false).toBeTyped('boolean');
+    expect(Symbol('foobar')).toBeTyped('symbol');
+    expect(() => {}).toBeTyped('function');
   });
   it('tests other types correctly', () => {
-    expect([]).toBeType('array');
-    expect(/foobar/).toBeType('regexp');
-    expect(new RegExp('foobar')).toBeType('regexp');
-    expect(null).toBeType('null');
-    expect(undefined).toBeType('undefined');
-    expect(new Map()).toBeType('map');
-    expect(new Set()).toBeType('set');
-    expect(new Date()).toBeType('date');
+    expect([]).toBeTyped('array');
+    expect(/foobar/).toBeTyped('regexp');
+    expect(new RegExp('foobar')).toBeTyped('regexp');
+    expect(null).toBeTyped('null');
+    expect(undefined).toBeTyped('undefined');
+    expect(new Map()).toBeTyped('map');
+    expect(new Set()).toBeTyped('set');
+    expect(new Date()).toBeTyped('date');
   });
   it('works with promises', () => {
-    return expect(Promise.resolve([])).resolves.toBeType('array');
+    return expect(Promise.resolve([])).resolves.toBeTyped('array');
   });
 });
