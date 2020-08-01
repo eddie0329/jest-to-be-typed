@@ -1,0 +1,32 @@
+{
+  "name": "jest-to-be-typed",
+  "version": "1.0.0",
+  "description": "type checking using jest",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eddie0329/jest-to-be-typed.git"
+  },
+  "keywords": [
+    "jest",
+    "typeof",
+    "type",
+    "matcher",
+    "tdd",
+    "jest type"
+  ],
+  "author": "Eddie Sunny",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/eddie0329/jest-to-be-typed/issues"
+  },
+  "homepage": "https://github.com/eddie0329/jest-to-be-typed#readme",
+  "devDependencies": {
+    "jest": "^26.2.2",
+    "jest-get-type": "^26.0.0",
+    "jest-matcher-utils": "^26.2.0"
+  }
+}
