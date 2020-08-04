@@ -1,6 +1,6 @@
 {
   "name": "jest-to-be-typed",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "type checking using jest",
   "main": "index.js",
   "scripts": {
