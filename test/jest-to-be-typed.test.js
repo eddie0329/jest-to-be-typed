@@ -21,3 +21,28 @@ describe('testing extended expect', () => {
     return expect(Promise.resolve([])).resolves.toBeTyped('array');
   });
 });
+
+// describe('advanced test', () => {
+//   it('string number test', () => {
+//     const data = {
+//       name: 'eddie',
+//       age: 13,
+//     };
+//     const typed = {
+//       name: 'string',
+//       age: 'number',
+//     };
+//     expect(data).toBeTyped(typed);
+//   });
+//   it('wrong test', () => {
+//     const date = {
+//       name: 'eddie',
+//       age: 13,
+//     };
+//     const typed = {
+//       name: 'number',
+//       age: 'number',
+//     };
+//     expect(data).toBeTyped(typed);
+//   });
+// });

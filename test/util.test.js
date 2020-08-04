@@ -1,21 +1,22 @@
-import { getExpectedMatchType, DEFAULT, TYPES } from '../index';
+import { getExpectedMatchType, DEFAULT, ADVANCED } from '../index';
+import getType from 'jest-get-type';
 
 describe('Util test', () => {
   describe('matchType test', () => {
     it('string -> default', () => {
-      expect(getExpectedMatchType('string')).toBe(DEFAULT);
+      expect(getExpectedMatchType(getType('string'))).toBe(DEFAULT);
     });
     it('number -> default', () => {
-      expect(getExpectedMatchType('number')).toBe(DEFAULT);
+      expect(getExpectedMatchType(getType(123))).toBe(DEFAULT);
     });
     it('boolean -> default', () => {
-      expect(getExpectedMatchType('boolean')).toBe(DEFAULT);
+      expect(getExpectedMatchType(getType(true))).toBe(DEFAULT);
     });
     it('function -> default', () => {
-      expect(getExpectedMatchType('function')).toBe(DEFAULT);
+      expect(getExpectedMatchType(getType(() => {}))).toBe(DEFAULT);
     });
     it('object -> types', () => {
-      expect(getExpectedMatchType('object')).toBe(TYPES);
+      expect(getExpectedMatchType(getType({}))).toBe(ADVANCED);
     });
   });
 });

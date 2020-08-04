@@ -1,17 +1,17 @@
 import { matcherHint, printExpected, printReceived } from 'jest-matcher-utils';
 import getType from 'jest-get-type';
 
-export const TYPES = 'TYPES';
+export const ADVANCED = 'ADVANCED';
 export const DEFAULT = 'DEFAULT';
 
 export const getExpectedMatchType = (expectedType) => {
   if (expectedType === 'object') {
-    return TYPES;
+    return ADVANCED;
   }
   return DEFAULT;
 };
 
-const checkDefaultTypes = (received, expected) => {
+const checkDefaultTypes = (received, expected) => () => {
   const type = getType(received);
   const pass = type === expected;
   const message = pass
@@ -35,14 +35,21 @@ const checkDefaultTypes = (received, expected) => {
   return { pass, message };
 };
 
-const checkAdvancedTypes = (received, expected, strict) => {};
+const checkAdvancedTypes = (received, expected) => () => {
+  console.log(expected);
+  // console.log('expected', expected);
+  // Object.entries(expected).forEach(([key, value]) => {
+  //   console.log(key);
+  //   console.log(value);
+  // });
+};
 
-export const toBeTyped = (received, expected, strict = false) => {
+export const toBeTyped = (received, expected) => {
   const options = {
     DEFAULT: checkDefaultTypes(received, expected),
-    TYPES: checkAdvancedTypes(strict),
+    ADVANCED: checkAdvancedTypes(received, expected),
   };
-  return options[getExpectedMatchType(getType(expected))];
+  return options[getExpectedMatchType(getType(expected))]();
 };
 
 expect.extend({ toBeTyped });
