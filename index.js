@@ -1,10 +1,10 @@
 import { matcherHint, printExpected, printReceived } from 'jest-matcher-utils';
 import getType from 'jest-get-type';
 
-const TYPES = 'TYPES';
-const DEFAULT = 'DEFAULT';
+export const TYPES = 'TYPES';
+export const DEFAULT = 'DEFAULT';
 
-export const matchType = (expectedType) => {
+export const getExpectedMatchType = (expectedType) => {
   if (expectedType === 'object') {
     return TYPES;
   }

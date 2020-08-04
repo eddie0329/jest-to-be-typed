@@ -1,24 +1,21 @@
-import { matchType } from '../index';
-
-const DEFAULT = 'DEFAULT';
-const TYPES = 'TYPES';
+import { getExpectedMatchType, DEFAULT, TYPES } from '../index';
 
 describe('Util test', () => {
   describe('matchType test', () => {
     it('string -> default', () => {
-      expect(matchType('string')).toBe(DEFAULT);
+      expect(getExpectedMatchType('string')).toBe(DEFAULT);
     });
     it('number -> default', () => {
-      expect(matchType('number')).toBe(DEFAULT);
+      expect(getExpectedMatchType('number')).toBe(DEFAULT);
     });
     it('boolean -> default', () => {
-      expect(matchType('boolean')).toBe(DEFAULT);
+      expect(getExpectedMatchType('boolean')).toBe(DEFAULT);
     });
     it('function -> default', () => {
-      expect(matchType('function')).toBe(DEFAULT);
+      expect(getExpectedMatchType('function')).toBe(DEFAULT);
     });
     it('object -> types', () => {
-      expect(matchType('object')).toBe(TYPES);
+      expect(getExpectedMatchType('object')).toBe(TYPES);
     });
   });
 });
