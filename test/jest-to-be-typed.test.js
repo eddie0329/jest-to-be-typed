@@ -28,21 +28,34 @@ describe('advanced test', () => {
       name: 'eddie',
       age: 13,
     };
-    const typed = {
+    const types = {
       name: 'string',
       age: 'number',
     };
-    expect(data).toBeTyped(typed);
+    expect(data).toBeTyped(types);
   });
-  it('wrong test', () => {
-    const date = {
-      name: 'eddie',
-      age: 13,
-    };
-    const typed = {
-      name: 'number',
-      age: 'number',
-    };
-    expect(data).toBeTyped(typed);
-  });
+
+  // below should be wrong test
+
+  // it('wrong test', () => {
+  //   const data = {
+  //     name: 'eddie',
+  //     age: 13,
+  //   };
+  //   const typed = {
+  //     name: 'number',
+  //     age: 'number',
+  //   };
+  //   expect(data).toBeTyped(typed);
+  // });
+  // it('length not equal test', () => {
+  //   const data = {
+  //     name: 'eddie',
+  //   };
+  //   const types = {
+  //     name: 'string',
+  //     age: 'number',
+  //   };
+  //   expect(data).toBeTyped(types);
+  // });
 });
