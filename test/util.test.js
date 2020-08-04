@@ -1,4 +1,4 @@
-import { getExpectedMatchType, DEFAULT, ADVANCED } from '../index';
+import { getExpectedMatchType, DEFAULT, ADVANCED, isPassed } from '../index';
 import getType from 'jest-get-type';
 
 describe('Util test', () => {
@@ -17,6 +17,15 @@ describe('Util test', () => {
     });
     it('object -> types', () => {
       expect(getExpectedMatchType(getType({}))).toBe(ADVANCED);
+    });
+  });
+
+  describe('isPassed test', () => {
+    it('[true, ture] -> true', () => {
+      expect(isPassed([true, true])).toBeTruthy();
+    });
+    it('[true, false] -> false', () => {
+      expect(isPassed([true, false])).toBeFalsy();
     });
   });
 });
