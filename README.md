@@ -11,12 +11,12 @@ Jest matcher that allows you to test the expected type of value.
 ### With npm
 
 ```sh
-
+npm i jest-to-be-typed
 ```
 ### With yarn
 
 ```sh
-
+yarn add jest-to-be-typed
 ```
 
 ## 📦 Setup
