@@ -46,34 +46,32 @@ const checkAdvancedTypes = (received, expected) => () => {
     const receivedType = getType(received[key]);
     if (receivedType === value) {
       pass.push(true);
-      types.push(receivedType);
     } else {
       pass.push(false);
     }
+    types.unshift(receivedType);
   });
-  console.log(types);
-  console.log(pass);
+  const filteredPass = isPassed(pass);
 
-  const message =
-    pass.filter((bool) => bool !== false).length === 0
-      ? () =>
-          matcherHint('.not.toBeType', 'value', 'type') +
-          '\n\n' +
-          `Expected value to be of type:\n` +
-          `  ${printExpected(expected)}\n` +
-          `Received:\n` +
-          `  ${printReceived(received)}\n`
-      : () =>
-          matcherHint('.toBeType', 'value', 'type') +
-          '\n\n' +
-          `Expected value to be of type:\n` +
-          `  ${printExpected(expected)}\n` +
-          `Received:\n` +
-          `  ${printReceived(received)}\n` +
-          `type:\n` +
-          `  ${printReceived(type)}`;
+  const message = filteredPass
+    ? () =>
+        matcherHint('.not.toBeType', 'value', 'type') +
+        '\n\n' +
+        `Expected value to be of type:\n` +
+        `  ${printExpected(expected)}\n` +
+        `Received:\n` +
+        `  ${printReceived(received)}\n`
+    : () =>
+        matcherHint('.toBeType', 'value', 'type') +
+        '\n\n' +
+        `Expected value to be of type:\n` +
+        `  ${printExpected(expected)}\n` +
+        `Received:\n` +
+        `  ${printReceived(received)}\n` +
+        `type:\n` +
+        `  ${printReceived(types)}`;
 
-  // return { pass.filter(), message };
+  return { pass: filteredPass, message };
 };
 
 export const toBeTyped = (received, expected) => {
