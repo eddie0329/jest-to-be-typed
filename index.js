@@ -82,4 +82,8 @@ export const toBeTyped = (received, expected) => {
   return options[getExpectedMatchType(getType(expected))]();
 };
 
-expect.extend({ toBeTyped });
+export default {
+  toBeTyped,
+};
+
+// expect.extend({ toBeTyped });

@@ -1,3 +1,7 @@
+import toBeTyped from '../index';
+
+expect.extend(toBeTyped);
+
 describe('testing extended expect', () => {
   it('tests normal types correctly', () => {
     expect('').toBeTyped('string');
@@ -27,10 +31,14 @@ describe('advanced test', () => {
     const data = {
       name: 'eddie',
       age: 13,
+      address: [],
+      isMarried: false,
     };
     const types = {
       name: 'string',
       age: 'number',
+      address: 'array',
+      isMarried: 'boolean',
     };
     expect(data).toBeTyped(types);
   });
