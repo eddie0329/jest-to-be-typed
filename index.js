@@ -11,7 +11,7 @@ export const getExpectedMatchType = (expectedType) => {
   return DEFAULT;
 };
 
-export const toBeTyped = (received, expected) => {
+const checkDefaultTypes = (received, expected) => {
   const type = getType(received);
   const pass = type === expected;
   const message = pass
@@ -33,6 +33,16 @@ export const toBeTyped = (received, expected) => {
         `  ${printReceived(type)}`;
 
   return { pass, message };
+};
+
+const checkAdvancedTypes = (received, expected, strict) => {};
+
+export const toBeTyped = (received, expected, strict = false) => {
+  const options = {
+    DEFAULT: checkDefaultTypes(received, expected),
+    TYPES: checkAdvancedTypes(strict),
+  };
+  return options[getExpectedMatchType(getType(expected))];
 };
 
 expect.extend({ toBeTyped });
