@@ -4,6 +4,10 @@ import getType from 'jest-get-type';
 export const ADVANCED = 'ADVANCED';
 export const DEFAULT = 'DEFAULT';
 
+export const isPassed = (pass) => {
+  return pass.filter((bool) => bool === false).length === 0;
+};
+
 export const getExpectedMatchType = (expectedType) => {
   if (expectedType === 'object') {
     return ADVANCED;
@@ -36,12 +40,40 @@ const checkDefaultTypes = (received, expected) => () => {
 };
 
 const checkAdvancedTypes = (received, expected) => () => {
-  console.log(expected);
-  // console.log('expected', expected);
-  // Object.entries(expected).forEach(([key, value]) => {
-  //   console.log(key);
-  //   console.log(value);
-  // });
+  const types = [];
+  const pass = [];
+  Object.entries(expected).forEach(([key, value]) => {
+    const receivedType = getType(received[key]);
+    if (receivedType === value) {
+      pass.push(true);
+      types.push(receivedType);
+    } else {
+      pass.push(false);
+    }
+  });
+  console.log(types);
+  console.log(pass);
+
+  const message =
+    pass.filter((bool) => bool !== false).length === 0
+      ? () =>
+          matcherHint('.not.toBeType', 'value', 'type') +
+          '\n\n' +
+          `Expected value to be of type:\n` +
+          `  ${printExpected(expected)}\n` +
+          `Received:\n` +
+          `  ${printReceived(received)}\n`
+      : () =>
+          matcherHint('.toBeType', 'value', 'type') +
+          '\n\n' +
+          `Expected value to be of type:\n` +
+          `  ${printExpected(expected)}\n` +
+          `Received:\n` +
+          `  ${printReceived(received)}\n` +
+          `type:\n` +
+          `  ${printReceived(type)}`;
+
+  // return { pass.filter(), message };
 };
 
 export const toBeTyped = (received, expected) => {
