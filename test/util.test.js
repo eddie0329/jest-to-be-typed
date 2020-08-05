@@ -1,4 +1,5 @@
-import { getExpectedMatchType, DEFAULT, ADVANCED, isPassed } from '../index';
+import { ADVANCED, DEFAULT } from '../src/constants';
+import { getExpectedMatchType, isPassed } from '../src/utils';
 import getType from 'jest-get-type';
 
 describe('Util test', () => {

@@ -39,7 +39,7 @@ describe('advanced test', () => {
     expect(data).toBeTyped(types);
   });
 
-  // below should be wrong test
+  // below should be fail test
 
   // it('wrong test', () => {
   //   const data = {
