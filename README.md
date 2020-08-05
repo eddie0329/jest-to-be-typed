@@ -76,6 +76,7 @@ Default mode checks typeof expected value.
   expect(new Map()).toBeTyped('map');
   expect(new Set()).toBeTyped('set');
   expect(new Date()).toBeTyped('date');
+  expect(Promise.resolve([])).resolves.toBeTyped('array');
 ```
 
 ### Advanced mode:
