@@ -1,4 +1,4 @@
-# 🎉 Jest To be Typed
+# 🎉 Jest To Be Typed
 
 [![version](https://img.shields.io/npm/v/jest-chain.svg?style=flat-square)](https://www.npmjs.com/package/jest-to-be-typed)
 [![downloads](https://img.shields.io/npm/dm/jest-chain.svg?style=flat-square)](http://npm-stat.com/charts.html?package=jest-to-be-typed&from=2020-08-03)
