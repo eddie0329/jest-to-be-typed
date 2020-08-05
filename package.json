@@ -2,9 +2,9 @@
   "name": "jest-to-be-typed",
   "version": "1.0.8",
   "description": "type checking using jest",
-  "main": "index-cjs.js",
-  "module": "index.js",
+  "main": "dist/index.js",
   "scripts": {
+    "build": "babel src/index.js -d dist",
     "test": "jest --watch"
   },
   "repository": {
@@ -30,6 +30,9 @@
     "babel-jest": "^26.2.2",
     "jest": "^26.2.2",
     "jest-get-type": "^26.0.0",
-    "jest-matcher-utils": "^26.2.0"
+    "jest-matcher-utils": "^26.2.0",
+    "@babel/cli": "^7.10.5",
+    "@babel/core": "^7.11.1",
+    "@babel/plugin-transform-modules-commonjs": "^7.10.4"
   }
 }
