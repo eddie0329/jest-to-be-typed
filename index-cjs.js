@@ -1,14 +1,18 @@
-import { matcherHint, printExpected, printReceived } from 'jest-matcher-utils';
-import getType from 'jest-get-type';
+const {
+  matcherHint,
+  printExpected,
+  printReceived,
+} = require('jest-matcher-utils');
+const getType = require('jest-get-type');
 
-export const ADVANCED = 'ADVANCED';
-export const DEFAULT = 'DEFAULT';
+const ADVANCED = 'ADVANCED';
+const DEFAULT = 'DEFAULT';
 
-export const isPassed = (pass) => {
+const isPassed = (pass) => {
   return pass.filter((bool) => bool === false).length === 0;
 };
 
-export const getExpectedMatchType = (expectedType) => {
+const getExpectedMatchType = (expectedType) => {
   if (expectedType === 'object') {
     return ADVANCED;
   }
@@ -74,7 +78,7 @@ const checkAdvancedTypes = (received, expected) => () => {
   return { pass: filteredPass, message };
 };
 
-export const toBeTyped = (received, expected) => {
+const toBeTyped = (received, expected) => {
   const options = {
     DEFAULT: checkDefaultTypes(received, expected),
     ADVANCED: checkAdvancedTypes(received, expected),
@@ -82,8 +86,6 @@ export const toBeTyped = (received, expected) => {
   return options[getExpectedMatchType(getType(expected))]();
 };
 
-export default {
-  toBeTyped,
-};
-
+exports.default = { toBeTyped };
+module.exports = { toBeTyped };
 expect.extend({ toBeTyped });
