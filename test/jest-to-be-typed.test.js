@@ -1,7 +1,3 @@
-import toBeTyped from '../index';
-
-expect.extend(toBeTyped);
-
 describe('testing extended expect', () => {
   it('tests normal types correctly', () => {
     expect('').toBeTyped('string');

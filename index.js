@@ -86,4 +86,4 @@ export default {
   toBeTyped,
 };
 
-// expect.extend({ toBeTyped });
+expect.extend({ toBeTyped });
