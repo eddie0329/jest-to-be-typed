@@ -1,5 +1,9 @@
-import { matcherHint, printExpected, printReceived } from 'jest-matcher-utils';
-import getType from 'jest-get-type';
+const {
+  matcherHint,
+  printExpected,
+  printReceived,
+} = require('jest-matcher-utils');
+const { getType } = require('jest-get-type');
 
 export const ADVANCED = 'ADVANCED';
 export const DEFAULT = 'DEFAULT';
