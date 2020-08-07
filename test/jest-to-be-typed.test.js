@@ -1,3 +1,5 @@
+const { toBeTyped } = require('../src');
+
 describe('testing extended expect', () => {
   it('tests normal types correctly', () => {
     expect('').toBeTyped('string');
@@ -23,7 +25,7 @@ describe('testing extended expect', () => {
 });
 
 describe('advanced test', () => {
-  it('string number test', () => {
+  it('string number test in strict mode', () => {
     const data = {
       name: 'eddie',
       age: 13,
@@ -40,6 +42,17 @@ describe('advanced test', () => {
   });
 
   // below should be fail test
+  it('test in non-strict mode', () => {
+    const data = {
+      name: 'eddie',
+      age: 13,
+    };
+
+    const types = {
+      name: 'string',
+    };
+    expect(data).toBeTyped(types, false);
+  });
 
   // it('wrong test', () => {
   //   const data = {
