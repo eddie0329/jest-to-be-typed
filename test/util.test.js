@@ -29,4 +29,28 @@ describe('Util test', () => {
       expect(isPassed([true, false])).toBeFalsy();
     });
   });
+
+  describe('isNumberOfKeysNotEqual', () => {
+    it('not eqaul test', () => {
+      const mock1 = {
+        name: 'eddie',
+      };
+      const mock2 = {
+        name: 'sam',
+        age: 34,
+      };
+      expect(isNumberOfKeysNotEqual(mock1, mock2)).toBeFalsy();
+    });
+    it('equal test', () => {
+      const mock1 = {
+        name: 'eddie',
+        age: 12,
+      };
+      const mock2 = {
+        name: 'sam',
+        age: 34,
+      };
+      expect(isNumberOfKeysNotEqual(mock1, mock2)).toBeTruthy();
+    });
+  });
 });
