@@ -1,4 +1,8 @@
-import { isPassed, getExpectedMatchType } from './utils';
+import {
+  isPassed,
+  getExpectedMatchType,
+  isNumberOfKeysNotEqual,
+} from './utils';
 import { matcherHint, printExpected, printReceived } from 'jest-matcher-utils';
 import getType from 'jest-get-type';
 
@@ -29,7 +33,7 @@ const checkDefaultTypes = (received, expected) => () => {
 const checkAdvancedTypes = (received, expected) => () => {
   const types = [];
   const pass = [];
-  if (Object.keys(received).length !== Object.keys(expected).length) {
+  if (isNumberOfKeysNotEqual(received, expected)) {
     pass.push(false);
   }
   Object.entries(expected).forEach(([key, value]) => {
