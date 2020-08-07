@@ -1,8 +1,8 @@
 # 🎉 Jest To Be Typed
 
-[![version](https://img.shields.io/npm/v/jest-chain.svg?style=flat-square)](https://www.npmjs.com/package/jest-to-be-typed)
-[![downloads](https://img.shields.io/npm/dm/jest-chain.svg?style=flat-square)](http://npm-stat.com/charts.html?package=jest-to-be-typed&from=2020-08-03)
-[![MIT License](https://img.shields.io/npm/l/jest-chain.svg?style=flat-square)](https://github.com/eddie0329/jest-to-be-typed/blob/master/LICENSE)
+[![version](https://img.shields.io/npm/v/jest-to-be-typed.svg?style=flat-square)](https://www.npmjs.com/package/jest-to-be-typed)
+[![downloads](https://img.shields.io/npm/dm/jest-to-be-typed.svg?style=flat-square)](http://npm-stat.com/charts.html?package=jest-to-be-typed&from=2020-08-03)
+[![MIT License](https://img.shields.io/npm/l/jest-to-be-typed.svg?style=flat-square)](https://github.com/eddie0329/jest-to-be-typed/blob/master/LICENSE)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 Jest matcher that allows you to test the expected type of value.
