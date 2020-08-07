@@ -6,6 +6,11 @@ import {
 import { matcherHint, printExpected, printReceived } from 'jest-matcher-utils';
 import getType from 'jest-get-type';
 
+/**
+ *
+ * @param {*} received
+ * @param {*} expected
+ */
 const checkDefaultTypes = (received, expected) => () => {
   const type = getType(received);
   const pass = type === expected;
@@ -30,6 +35,11 @@ const checkDefaultTypes = (received, expected) => () => {
   return { pass, message };
 };
 
+/**
+ *
+ * @param {*} received
+ * @param {*} expected
+ */
 const checkAdvancedTypes = (received, expected) => () => {
   const types = [];
   const pass = [];
@@ -68,6 +78,11 @@ const checkAdvancedTypes = (received, expected) => () => {
   return { pass: filteredPass, message };
 };
 
+/**
+ *
+ * @param {*} received
+ * @param {*} expected
+ */
 export const toBeTyped = (received, expected) => {
   const options = {
     DEFAULT: checkDefaultTypes(received, expected),
