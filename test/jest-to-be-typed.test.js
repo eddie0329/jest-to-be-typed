@@ -42,17 +42,17 @@ describe('advanced test', () => {
   });
 
   // below should be fail test
-  it('test in non-strict mode', () => {
-    const data = {
-      name: 'eddie',
-      age: 13,
-    };
+  // it('length not equal test 2', () => {
+  //   const data = {
+  //     name: 'eddie',
+  //     age: 13,
+  //   };
 
-    const types = {
-      name: 'string',
-    };
-    expect(data).toBeTyped(types, false);
-  });
+  //   const types = {
+  //     name: 'string',
+  //   };
+  //   expect(data).toBeTyped(types, false);
+  // });
 
   // it('wrong test', () => {
   //   const data = {

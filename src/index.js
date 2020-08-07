@@ -29,6 +29,9 @@ const checkDefaultTypes = (received, expected) => () => {
 const checkAdvancedTypes = (received, expected) => () => {
   const types = [];
   const pass = [];
+  if (Object.keys(received).length !== Object.keys(expected).length) {
+    pass.push(false);
+  }
   Object.entries(expected).forEach(([key, value]) => {
     const receivedType = getType(received[key]);
     if (receivedType === value) {
