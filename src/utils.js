@@ -10,3 +10,6 @@ export const getExpectedMatchType = (expectedType) => {
   }
   return DEFAULT;
 };
+
+export const isNumberOfKeysNotEqual = (obj1, obj2) =>
+  Object.keys(obj1).length !== Object.keys(obj2).length;

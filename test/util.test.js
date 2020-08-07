@@ -1,5 +1,9 @@
 import { ADVANCED, DEFAULT } from '../src/constants';
-import { getExpectedMatchType, isPassed } from '../src/utils';
+import {
+  getExpectedMatchType,
+  isPassed,
+  isNumberOfKeysNotEqual,
+} from '../src/utils';
 import getType from 'jest-get-type';
 
 describe('Util test', () => {
@@ -39,7 +43,7 @@ describe('Util test', () => {
         name: 'sam',
         age: 34,
       };
-      expect(isNumberOfKeysNotEqual(mock1, mock2)).toBeFalsy();
+      expect(isNumberOfKeysNotEqual(mock1, mock2)).toBeTruthy();
     });
     it('equal test', () => {
       const mock1 = {
@@ -50,7 +54,7 @@ describe('Util test', () => {
         name: 'sam',
         age: 34,
       };
-      expect(isNumberOfKeysNotEqual(mock1, mock2)).toBeTruthy();
+      expect(isNumberOfKeysNotEqual(mock1, mock2)).toBeFalsy();
     });
   });
 });
